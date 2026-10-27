@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="KORZINKA: проект ELMMY. Моделирование, шейдинг и анимация для рекламного 3D-визуала."
+    />
+    <title>ELMMY | KORZINKA</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas class="smoke-background" data-smoke-color="#d8d8d8" aria-hidden="true"></canvas>
+    <svg class="glass-filter" aria-hidden="true">
+      <filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+        <feTurbulence type="fractalNoise" baseFrequency="0.001 0.005" numOctaves="1" seed="17" result="turbulence" />
+        <feComponentTransfer in="turbulence" result="mapped">
+          <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+          <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+          <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
+        </feComponentTransfer>
+        <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
+        <feSpecularLighting in="softMap" surfaceScale="5" specularConstant="1" specularExponent="100" lightingColor="white" result="specLight">
+          <fePointLight x="-200" y="-200" z="300" />
+        </feSpecularLighting>
+        <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage" />
+        <feDisplacementMap in="SourceGraphic" in2="softMap" scale="120" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </svg>
+    <a class="skip-link" href="#main">К контенту</a>
+
+    <header class="site-header glass-panel" aria-label="Навигация">
+      <a class="brand" href="./index.html" aria-label="ELMMY на главный экран">ELMMY</a>
+      <nav class="nav" aria-label="Основные разделы">
+        <a href="./index.html#projects">Назад</a>
+        <a href="#video">Видео</a>
+        <a href="#process">Материалы</a>
+        <a href="./index.html#contact">Контакты</a>
+      </nav>
+      <button class="language-toggle" type="button" data-lang-toggle aria-label="Switch language" aria-pressed="false">
+        <span data-lang-label>EN</span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="case-intro case-intro-with-video" id="video" aria-labelledby="case-title">
+        <div class="case-intro-copy reveal">
+          <h1 id="case-title">KORZINKA</h1>
+          <p class="case-lead">Обязанности на проекте: моделирование, шейдинг, анимация.</p>
+        </div>
+        <dl class="case-meta reveal glass-panel" aria-label="Информация о проекте">
+          <div>
+            <dt>Формат</dt>
+            <dd>Рекламный 3D-визуал</dd>
+          </div>
+          <div>
+            <dt>Зона работы</dt>
+            <dd>Modeling / Shading / Motion</dd>
+          </div>
+        </dl>
+        <div class="case-video reveal glass-panel">
+          <iframe
+            src="https://player.vimeo.com/video/901824433?title=0&byline=0&portrait=0"
+            title="KORZINKA video"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="section case-process" id="process" aria-labelledby="case-process-title">
+        <div class="section-heading reveal">
+        </div>
+        <div class="case-gif-grid">
+          <figure class="case-gif-card reveal glass-panel">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="KORZINKA: анимационный фрагмент 01">
+              <source src="./assets/projects/korzinka/korzinka-01.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <figure class="case-gif-card reveal glass-panel">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="KORZINKA: анимационный фрагмент 02">
+              <source src="./assets/projects/korzinka/korzinka-02.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <figure class="case-gif-card reveal glass-panel">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="KORZINKA: анимационный фрагмент 03">
+              <source src="./assets/projects/korzinka/korzinka-03.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <figure class="case-gif-card reveal glass-panel">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="KORZINKA: анимационный фрагмент 04">
+              <source src="./assets/projects/korzinka/korzinka-04.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <figure class="case-gif-card reveal glass-panel">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="KORZINKA: анимационный фрагмент 05">
+              <source src="./assets/projects/korzinka/korzinka-05.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <figure class="case-gif-card reveal glass-panel">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="KORZINKA: анимационный фрагмент 07">
+              <source src="./assets/projects/korzinka/korzinka-07.mp4" type="video/mp4" />
+            </video>
+          </figure>
+        </div>
+
+        <footer class="footer">
+          <img src="./assets/1_0006_ELMMY.png" alt="ELMMY" />
+          <span>KORZINKA</span>
+        </footer>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

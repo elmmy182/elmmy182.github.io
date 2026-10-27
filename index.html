@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Портфолио ELMMY: 3D-дизайн, архитектурная визуализация, моушен дизайн и моделирование."
+    />
+    <title>ELMMY | 3D Designer Portfolio</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas class="smoke-background" data-smoke-color="#d8d8d8" aria-hidden="true"></canvas>
+    <svg class="glass-filter" aria-hidden="true">
+      <filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+        <feTurbulence type="fractalNoise" baseFrequency="0.001 0.005" numOctaves="1" seed="17" result="turbulence" />
+        <feComponentTransfer in="turbulence" result="mapped">
+          <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+          <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+          <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
+        </feComponentTransfer>
+        <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
+        <feSpecularLighting in="softMap" surfaceScale="5" specularConstant="1" specularExponent="100" lightingColor="white" result="specLight">
+          <fePointLight x="-200" y="-200" z="300" />
+        </feSpecularLighting>
+        <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage" />
+        <feDisplacementMap in="SourceGraphic" in2="softMap" scale="120" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </svg>
+    <a class="skip-link" href="#main">К контенту</a>
+
+    <header class="site-header" aria-label="Навигация">
+      <a class="brand" href="#top" aria-label="ELMMY на главный экран">ELMMY</a>
+      <nav class="nav" aria-label="Основные разделы">
+        <a href="#projects">Проекты</a>
+        <a href="#tools">Софт</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+      <button class="language-toggle" type="button" data-lang-toggle aria-label="Switch language" aria-pressed="false">
+        <span data-lang-label>EN</span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <h1 id="hero-title">Привет<br />я Макс</h1>
+          <p class="alias">или же: ELMMY</p>
+          <p class="hero-text">
+            3D-дизайнер с опытом в создании рекламной графики, моделировании,
+            анимации персонажей и продуктовой визуализации.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">Проекты</a>
+            <a class="button secondary" href="#tools">Софт</a>
+            <a class="button secondary" href="#contact">Контакты</a>
+          </div>
+        </div>
+
+        <figure class="hero-photo reveal">
+          <img src="./assets/hero-ava.webp" alt="Портрет Макса, 3D-дизайнера ELMMY" />
+        </figure>
+      </section>
+
+      <section class="section work" id="work" aria-labelledby="work-title">
+        <div class="section-heading reveal">
+          <h2 id="work-title">Направления</h2>
+        </div>
+        <div class="work-grid">
+          <article class="work-item reveal glass-panel">
+            <span>01</span>
+            <h3>Архитектурная визуализация</h3>
+            <p>Интерьеры, экстерьеры, предметное окружение, свет и материалы.</p>
+          </article>
+          <article class="work-item reveal glass-panel">
+            <span>02</span>
+            <h3>Моушен дизайн</h3>
+            <p>Анимация объектов, персонажей, камер и графических сцен.</p>
+          </article>
+          <article class="work-item reveal glass-panel">
+            <span>03</span>
+            <h3>Моделирование</h3>
+            <p>3D-модели для рекламной графики, визуализации и производства.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section projects" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading reveal">
+          <h2 id="projects-title">Проекты</h2>
+        </div>
+        <div class="project-card-grid project-card-grid-five">
+          <a class="project-card reveal glass-panel" href="./cheers-chips.html" aria-label="Открыть проект CHEERS CHIPS">
+            <div class="project-card-media">
+              <video autoplay muted loop playsinline preload="metadata" aria-label="Обложка проекта CHEERS CHIPS">
+                <source src="./assets/projects/cheers-chips/cheers-cover.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="project-card-copy">
+              <span>01</span>
+              <h3>CHEERS CHIPS</h3>
+              <p>Моделирование, шейдинг и анимация для рекламного 3D-ролика.</p>
+            </div>
+          </a>
+          <a class="project-card reveal glass-panel" href="./blink-app.html" aria-label="Открыть проект BLINK APP">
+            <div class="project-card-media">
+              <video autoplay muted loop playsinline preload="metadata" aria-label="Обложка проекта BLINK APP">
+                <source src="./assets/projects/blink-app/blink-cover.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="project-card-copy">
+              <span>02</span>
+              <h3>BLINK APP</h3>
+              <p>Моделирование, шейдинг, анимация, VFX и композ для 3D-визуала приложения.</p>
+            </div>
+          </a>
+          <a class="project-card reveal glass-panel" href="./elitech.html" aria-label="Открыть проект ELITECH">
+            <div class="project-card-media">
+              <img src="./assets/projects/elitech/elitech-cover.webp" alt="Обложка проекта ELITECH" loading="lazy" />
+            </div>
+            <div class="project-card-copy">
+              <span>03</span>
+              <h3>ELITECH</h3>
+              <p>Шейдинг, анимация и рендер для 3D-визуала с архитектурным CGI.</p>
+            </div>
+          </a>
+          <a class="project-card reveal glass-panel" href="./korzinka.html" aria-label="Открыть проект KORZINKA">
+            <div class="project-card-media">
+              <video autoplay muted loop playsinline preload="metadata" aria-label="Обложка проекта KORZINKA">
+                <source src="./assets/projects/korzinka/korzinka-cover.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="project-card-copy">
+              <span>04</span>
+              <h3>KORZINKA</h3>
+              <p>Моделирование, шейдинг и анимация для рекламного 3D-визуала.</p>
+            </div>
+          </a>
+          <a class="project-card project-card-architecture reveal glass-panel" href="./architecture.html" aria-label="Открыть проект Архитектурная визуализация">
+            <div class="project-card-media">
+              <img src="./assets/photo/Гостиная/гостиная_1.webp" alt="Обложка проекта Архитектурная визуализация" loading="lazy" />
+            </div>
+            <div class="project-card-copy">
+              <span>05</span>
+              <h3>АРХИТЕКТУРНАЯ ВИЗУАЛИЗАЦИЯ</h3>
+              <p>Интерьеры, экстерьеры, предметное окружение, свет и материалы.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="section showcase" id="showcase" aria-labelledby="showcase-title">
+        <div class="section-heading reveal">
+          <h2 id="showcase-title">Другие проекты</h2>
+        </div>
+        <div class="video-mosaic reveal" aria-label="Подборка видео-работ">
+          <article class="video-tile video-tile-pano glass-panel" data-video-tile tabindex="0" role="button" aria-label="Открыть видео: Wide CGI">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="./assets/videos/optimized/panorama-web.mp4" type="video/mp4" />
+            </video>
+            <div class="video-caption">
+              <span>01</span>
+              <strong>Wide CGI</strong>
+            </div>
+          </article>
+          <article class="video-tile video-tile-vertical glass-panel" data-video-tile tabindex="0" role="button" aria-label="Открыть видео: Vertical Motion">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="./assets/videos/optimized/portrait-web.mp4" type="video/mp4" />
+            </video>
+            <div class="video-caption">
+              <span>02</span>
+              <strong>Vertical Motion</strong>
+            </div>
+          </article>
+          <article class="video-tile video-tile-horizontal glass-panel" data-video-tile tabindex="0" role="button" aria-label="Открыть видео: Auto Visual">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="./assets/videos/optimized/auto-web.mp4" type="video/mp4" />
+            </video>
+            <div class="video-caption">
+              <span>03</span>
+              <strong>Auto Visual</strong>
+            </div>
+          </article>
+          <article class="video-tile video-tile-horizontal glass-panel" data-video-tile tabindex="0" role="button" aria-label="Открыть видео: Character Scene">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="./assets/videos/optimized/bull-web.mp4" type="video/mp4" />
+            </video>
+            <div class="video-caption">
+              <span>04</span>
+              <strong>Character Scene</strong>
+            </div>
+          </article>
+          <article class="video-tile video-tile-wide glass-panel" data-video-tile tabindex="0" role="button" aria-label="Открыть видео: Motion Detail">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="./assets/videos/optimized/mord-web.mp4" type="video/mp4" />
+            </video>
+            <div class="video-caption">
+              <span>05</span>
+              <strong>Motion Detail</strong>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section tools" id="tools" aria-labelledby="tools-title">
+        <div class="section-heading reveal">
+          <h2 id="tools-title">Софт</h2>
+        </div>
+        <ul class="icon-list reveal">
+          <li class="glass-panel"><img src="./assets/icons/photoshop-mono.svg" alt="" /><span>Photoshop</span></li>
+          <li class="glass-panel"><img src="./assets/icons/after-effects-mono.svg" alt="" /><span>After Effects</span></li>
+          <li class="glass-panel"><img src="./assets/icons/blender-mono.svg" alt="" /><span>Blender</span></li>
+          <li class="glass-panel"><img class="marvelous-icon" src="./assets/icons/marvelous-designer-mono.svg" alt="" /><span>Marvelous Designer</span></li>
+          <li class="glass-panel"><img src="./assets/icons/unreal-engine-mono.svg" alt="" /><span>Unreal Engine 5</span></li>
+          <li class="glass-panel"><img src="./assets/icons/3ds-max-mono.svg" alt="" /><span>3ds Max</span></li>
+          <li class="glass-panel"><img src="./assets/icons/substance-painter-mono.svg" alt="" /><span>Substance Painter</span></li>
+          <li class="glass-panel"><img src="./assets/icons/cascadeur-mono.svg" alt="" /><span>Cascadeur</span></li>
+        </ul>
+      </section>
+
+      <section class="section end-section" id="contact" aria-labelledby="interests-title">
+        <div class="section-heading reveal">
+          <h2 id="interests-title">Хобби</h2>
+        </div>
+        <ul class="icon-list interest-list reveal">
+          <li class="glass-panel"><img src="./assets/icons/guitar.png" alt="" /><span>Guitar</span></li>
+          <li class="glass-panel"><img src="./assets/icons/vocal.png" alt="" /><span>Vocal</span></li>
+          <li class="glass-panel"><img src="./assets/icons/cooking.png" alt="" /><span>Cooking</span></li>
+          <li class="glass-panel"><img src="./assets/icons/longboard.png" alt="" /><span>Longboard</span></li>
+          <li class="glass-panel"><img src="./assets/icons/ai-creator.png" alt="" /><span>AI Creator</span></li>
+        </ul>
+        <div class="section-heading contact-heading reveal">
+          <h2 id="contact-title">Контактная информация</h2>
+        </div>
+        <address class="contact-list reveal">
+          <a class="glass-panel" href="mailto:elmmymgmt@gmail.com">
+            <img class="contact-icon" src="./assets/icons/contact/gmail.svg" alt="" />
+            <span>Gmail</span>
+          </a>
+          <a class="glass-panel" href="https://t.me/elmmy182">
+            <img class="contact-icon" src="./assets/icons/contact/telegram.svg" alt="" />
+            <span>Telegram</span>
+          </a>
+          <a class="glass-panel" href="https://instagram.com/_elmmy_">
+            <img class="contact-icon" src="./assets/icons/contact/instagram.svg" alt="" />
+            <span>Instagram</span>
+          </a>
+          <p class="glass-panel">
+            <img class="contact-icon" src="./assets/icons/contact/local.svg" alt="" />
+            <span>Грузия / Тбилиси</span>
+          </p>
+          <a class="glass-panel" href="https://www.facebook.com/profile.php?id=100022604284751">
+            <img class="contact-icon" src="./assets/icons/contact/facebook.svg" alt="" />
+            <span>Facebook</span>
+          </a>
+          <a class="glass-panel" href="https://wa.me/79879423498">
+            <img class="contact-icon" src="./assets/icons/contact/whatsapp.svg" alt="" />
+            <span>WhatsApp</span>
+          </a>
+        </address>
+
+        <footer class="footer">
+          <img src="./assets/1_0006_ELMMY.png" alt="ELMMY" />
+          <span>3D Designer Portfolio</span>
+        </footer>
+      </section>
+    </main>
+
+    <div class="video-lightbox" data-video-lightbox role="dialog" aria-modal="true" aria-label="Просмотр видео" hidden>
+      <button class="lightbox-control lightbox-close" type="button" data-video-lightbox-close aria-label="Закрыть видео">
+        &times;
+      </button>
+      <figure class="video-lightbox-figure">
+        <video data-video-lightbox-player controls playsinline preload="metadata"></video>
+        <figcaption class="video-lightbox-caption" data-video-lightbox-caption></figcaption>
+      </figure>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
