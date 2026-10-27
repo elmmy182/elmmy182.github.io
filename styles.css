@@ -1449,22 +1449,25 @@ body.lightbox-open {
   }
 
   .video-mosaic {
+    height: auto;
+    grid-template-rows: none;
     grid-auto-rows: auto;
   }
 
-  .video-tile,
-  .video-tile-pano,
-  .video-tile-vertical,
-  .video-tile-horizontal,
-  .video-tile-wide {
+  .video-mosaic > .video-tile {
     grid-column: auto;
     grid-row: auto;
     min-height: auto;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
   }
 
-  .video-tile-vertical {
+  .video-mosaic > .video-tile-vertical {
     aspect-ratio: 9 / 16;
+  }
+
+  .video-tile video {
+    object-fit: contain;
+    background: #0a0a0a;
   }
 
   .photo-card-large {
